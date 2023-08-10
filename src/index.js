@@ -60,8 +60,16 @@ function onChange(e) {
     })
 
     .catch(error => {
-        Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
+        Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!', {
+            width: '500px',
+            timeout: '5000',
+            fontSize: '25px',
+            position: 'center-top',
+            opacity: 0.7,
+          });
         catInfoEl.classList.add('is-hidden');
         console.error(error)
 });
 }
+
+
