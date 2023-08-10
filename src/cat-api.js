@@ -20,7 +20,7 @@ export function fetchBreeds() {
 
 export function fetchCatByBreed(breedId) {
     return axios
-      .get(`${BASE_URL}/images/search?bre1ed_ids=${breedId}`)
+      .get(`${BASE_URL}/images/search?breed_ids=${breedId}`)
       .then(response => {
         if (response.status !== 200) {
           throw new Error(response.statusText);
