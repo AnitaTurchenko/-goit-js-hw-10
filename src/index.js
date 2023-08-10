@@ -1,5 +1,7 @@
 import { fetchBreeds, fetchCatByBreed } from "./cat-api";
-import SlimSelect from 'slim-select'
+import SlimSelect from 'slim-select';
+import Notiflix from 'notiflix';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const selectEl = document.querySelector(".breed-select");
 const catInfoEl = document.querySelector(".cat-info");
@@ -19,12 +21,12 @@ then(data => {
     let markup = storedBreeds.map(breed => {
         return `<option value="${breed.id}">${breed.name}</option>`;
     });
-    selectEl.innerHTML = markup;
+    selectEl.innerHTML = markup;    
     new SlimSelect({
         select: '.breed-select'
       })
-}).
-catch(console.log);
+})
+.catch(console.log);
 
 function onChange(e) {
     e.preventDefault();
@@ -58,7 +60,7 @@ function onChange(e) {
     })
 
     .catch(error => {
-        // errorEl.classList.remove('is-hidden');
+        Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
         catInfoEl.classList.add('is-hidden');
         console.error(error)
 });
