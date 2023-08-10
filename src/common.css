@@ -1,12 +1,14 @@
 body {
     font-family: 'Roboto', 'Verdana', 'Tahoma', sans-serif;
+    background-color: #84676794;
   }
 
 
 img {
-    max-width: 370px;
+    max-width: 600px;
     width: 100%;
     height: 100%;
+    border: none;
 }
 
 .cat-info {
@@ -16,12 +18,17 @@ img {
     gap: 20px;
 }
 
+p {
+    font-style: italic;
+}
+
 p > span {
     font-weight: 600;
 }
 
 .breed-select {
-    margin: 20px;
+    margin: 30px;
+    max-width: 300px;
 }
 .loader, .error {
     margin-left: 20px;
@@ -34,6 +41,48 @@ p > span {
 }
 
 .loader {
+    width: 48px;
+    height: 48px;
+    display: block;
+    margin: 20px auto auto 150px;
+    position: relative;
+    border: 3px solid #FFF;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: animloader 2s linear infinite;
+  }
+  .loader::after {
+    content: '';  
+    box-sizing: border-box;
+    width: 6px;
+    height: 24px;
+    background: #FFF;
+    transform: rotate(-45deg);
+    position: absolute;
+    bottom: -20px;
+    left: 46px;
+  }
+  
+  @keyframes animloader {
+    0% {
+      transform: translate(-10px, -10px);
+    }
+    25% {
+      transform: translate(-10px, 10px);
+    }
+    50% {
+      transform: translate(10px, 10px);
+    }
+    75% {
+      transform: translate(10px, -10px);
+    }
+    100% {
+      transform: translate(-10px, -10px);
+    }
+  }
+      
+
+/* .loader {
     width: 48px;
     height: 48px;
     border: 3px dotted #FFF;
@@ -77,7 +126,8 @@ p > span {
     100% {
       transform: rotate(-360deg);
     }
-  } 
-  .is-hidden {
+  }  */
+
+.is-hidden {
     display: none;
 }
